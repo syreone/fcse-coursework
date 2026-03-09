@@ -101,6 +101,15 @@ class Library {
             }
         }
     }
+    public int countBooksByGenre(String genre) {
+        int count = 0;
+        for (Book book : books) {
+            if (book.getGenre().equalsIgnoreCase(genre)) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     // TODO: Optional additional method
     public int countAvailableBooks() {
@@ -139,5 +148,7 @@ public class SI2026Lab1Main {
 
         library.printBooksByGenre("Programming");
         library.borrowBook("The Hobbit");
+
+        System.out.println("Programming books: " + library.countBooksByGenre("Programming"));
     }
 }
