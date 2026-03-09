@@ -53,6 +53,11 @@ class Library {
 
     // TODO: Implement in branch feature-search-books
     public boolean searchBookByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -124,16 +129,8 @@ public class SI2026Lab1Main {
 
         System.out.println("Library initialized.");
 
-        // TODO: Add test call in feature-search-books
-        // Example:
-        // System.out.println(library.searchBookByTitle("Clean Code"));
+        System.out.println("Search Clean Code: " + library.searchBookByTitle("Clean Code"));
+        System.out.println("Search Harry Potter: " + library.searchBookByTitle("Harry Potter"));
 
-        // TODO: Add test call in feature-borrow-book
-        // Example:
-        // library.borrowBook("The Hobbit");
-
-        // TODO: Add test call in feature-genre-report
-        // Example:
-        // library.printBooksByGenre("Programming");
     }
 }
