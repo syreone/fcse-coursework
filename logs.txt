@@ -1,13 +1,16 @@
-*   d59b8b0 Merge branch 'feature-borrow-book'
+*   23f2855 Merge branch 'feature-borrow-book'
 |\  
-| *   e4cd1e9 Merge branch 'master' into feature-borrow-book
+| *   7fcbb19 Merge branch 'master' into feature-borrow-book
 | |\  
-| * | d138cc7 Implement borrow book
-* | | d708195 Implement genre report
+| * | 6f50b6b Implement borrow book
+* | |   1f158c2 Merge branch 'feature-genre-report'
+|\ \ \  
+| |_|/  
+|/| |   
+| * | 9416caf Implement genre report
 | |/  
-|/|   
-* | 755199d Update borrow message on master
+* / b820ffb Update borrow message on master
 |/  
-* acecd5a Implement book search
-* 3612eac Add starter code
-* cdc8b22 Initial commit
+* 061de44 Implement book search
+* 84d8261  Add starter code
+* 3956d9e Initial commit
