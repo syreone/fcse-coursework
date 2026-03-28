@@ -23,7 +23,11 @@ class Library {
     }
 
     boolean searchByTitle(String title) {
-        // TODO: Implement
+        for (Book book : books) {
+            if (book.title.equals(title)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -56,5 +60,9 @@ public class SI2026Lab1Main {
         library.addBook(new Book("1984", "George Orwell", "Dystopian"));
         library.addBook(new Book("Dune", "Frank Herbert", "Sci-Fi"));
         library.addBook(new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy"));
+
+        // Test search
+        System.out.println(library.searchByTitle("Dune"));
+        System.out.println(library.searchByTitle("Unknown Book"));
     }
 }
