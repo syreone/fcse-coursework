@@ -1,0 +1,43 @@
+Del 1
+step 9-13
+git checkout -b feature-search-books
+git add SI2026Lab1Main.java
+git commit -m "Implement book search"
+git push origin feature-search-books
+git checkout master
+git merge feature-search-books
+
+Merge type : Fastforward
+No conflicts  Бидејќи master немаше нови commits откако е креирана гранката,
+Git само го помести master покажувачот нанапред кон последниот commit на гранката.
+
+
+git log --oneline --graph --all :
+
+ cace09f (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
+* 537f420 (origin/master) Add starter code
+* dad19da Fix README with full name
+* a1d8587 Initial commit
+
+step 21-22 
+git checkout feature-borrow-book
+git merge master
+
+Настана конфликт во SI2026Lab1Main.java бидејќи двете гранки имаа различна
+порака при позајмување на книга. Конфликтот го решив така што ја задржав
+пораката "Borrowed successfully". Merge strategy : recursive merge.
+
+step 23
+git checkout master
+git merge feature-genre-report
+
+Merge type : Fastforward
+No conflicts Гранката feature-genre-report беше директно пред master
+без разидувачки commits, па Git само го помести master покажувачот нанапред.
+
+step 24
+git merge feature-borrow-book
+
+Merge type : Recursive 
+Двете гранки имаа различни commits откако се разделиле, па Git мораше да
+creира нов merge commit за да ги спои промените.
