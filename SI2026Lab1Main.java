@@ -39,7 +39,7 @@ class Library {
         for (Book book : books) {
             if (book.title.equals(title) && !book.isBorrowed) {
                 book.isBorrowed = true;
-                System.out.println("Borrowed successfully");
+                System.out.println("Book checked out");
                 return;
             }
         }
