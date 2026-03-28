@@ -36,8 +36,13 @@ class Library {
     }
 
     void borrowBook(String title) {
-        // TODO: Implement
-        System.out.println("Book checked out");
+        for (Book book : books) {
+            if (book.title.equals(title) && !book.isBorrowed) {
+                book.isBorrowed = true;
+                System.out.println("Borrowed successfully");
+                return;
+            }
+        }
     }
 
     void returnBook(String title) {
@@ -64,5 +69,8 @@ public class SI2026Lab1Main {
         // Test search
         System.out.println(library.searchByTitle("Dune"));
         System.out.println(library.searchByTitle("Unknown Book"));
+
+        // Test borrow
+        library.borrowBook("1984");
     }
 }
