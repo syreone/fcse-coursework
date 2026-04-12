@@ -1,4 +1,4 @@
-# Structural Programming 2023
+# \# Structural Programming 2023
 
 # 
 
@@ -18,5 +18,5 @@
 
 # \### dopolnitelni
 
-# Extra practice exercises completed alongside the midterm preparation.
+# Extra practice exercises completed alongside midterm preparation.
 
