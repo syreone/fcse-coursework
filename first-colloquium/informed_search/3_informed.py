@@ -471,8 +471,6 @@ def recursive_best_first_search(problem, h=None):
     return result
 
 
-import math
-
 class GhostOnSkates(Problem):
     def __init__(self, initial, walls, n, goal=None):
         super().__init__(initial, goal)
