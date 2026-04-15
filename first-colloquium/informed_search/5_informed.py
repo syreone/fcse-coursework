@@ -1,6 +1,5 @@
 import bisect
 
-
 """
 Дефинирање на класа за структурата на проблемот кој ќе го решаваме со пребарување.
 Класата Problem е апстрактна класа од која правиме наследување за дефинирање на основните 
@@ -18,7 +17,6 @@ class Problem:
         достапни од оваа состојба. Ако има многу следбеници, употребете
         итератор кој би ги генерирал следбениците еден по еден, наместо да
         ги генерирате сите одеднаш.
-
         :param state: дадена состојба
         :return:  речник од парови {акција : состојба} достапни од оваа
                   состојба
@@ -29,7 +27,6 @@ class Problem:
     def actions(self, state):
         """За дадена состојба state, врати листа од сите акции што може да
         се применат над таа состојба
-
         :param state: дадена состојба
         :return: листа на акции
         :rtype: list
@@ -39,7 +36,6 @@ class Problem:
     def result(self, state, action):
         """За дадена состојба state и акција action, врати ја состојбата
         што се добива со примена на акцијата над состојбата
-
         :param state: дадена состојба
         :param action: дадена акција
         :return: резултантна состојба
@@ -51,7 +47,6 @@ class Problem:
         на методот директно ја споредува state со self.goal, како што е
         специфицирана во конструкторот. Имплементирајте го овој метод ако
         проверката со една целна состојба self.goal не е доволна.
-
         :param state: дадена состојба
         :return: дали дадената состојба е целна состојба
         :rtype: bool
@@ -63,10 +58,9 @@ class Problem:
         state2 од состојбата state1 преку акцијата action, претпоставувајќи
         дека цената на патот до состојбата state1 е c. Ако проблемот е таков
         што патот не е важен, оваа функција ќе ја разгледува само состојбата
-        state2. Ако патот е важен, ќе ја разгледува цената c и можеби и
+        state2. Ако патот е важен, ќе ја разгледува цената c и можеби и
         state1 и action. Даденава имплементација му доделува цена 1 на секој
         чекор од патот.
-
         :param c: цена на патот до состојбата state1
         :param state1: дадена моментална состојба
         :param action: акција која треба да се изврши
@@ -77,10 +71,9 @@ class Problem:
         return c + 1
 
     def value(self):
-        """За проблеми на оптимизација, секоја состојба си има вредност. 
+        """За проблеми на оптимизација, секоја состојба си има вредност. 
         Hill-climbing и сличните алгоритми се обидуваат да ја максимизираат
         оваа вредност.
-
         :return: вредност на состојба
         :rtype: float
         """
@@ -97,7 +90,6 @@ class Node:
     def __init__(self, state, parent=None, action=None, path_cost=0):
         """Креирај јазол од пребарувачкото дрво, добиен од parent со примена
         на акцијата action
-
         :param state: моментална состојба (current state)
         :param parent: родителска состојба (parent state)
         :param action: акција (action)
@@ -119,7 +111,6 @@ class Node:
 
     def expand(self, problem):
         """Излистај ги јазлите достапни во еден чекор од овој јазол.
-
         :param problem: даден проблем
         :return: листа на достапни јазли во еден чекор
         :rtype: list(Node)
@@ -130,7 +121,6 @@ class Node:
 
     def child_node(self, problem, action):
         """Дете јазел
-
         :param problem: даден проблем
         :param action: дадена акција
         :return: достапен јазел според дадената акција
@@ -143,7 +133,6 @@ class Node:
 
     def solution(self):
         """Врати ја секвенцата од акции за да се стигне од коренот до овој јазол.
-
         :return: секвенцата од акции
         :rtype: list
         """
@@ -151,7 +140,6 @@ class Node:
 
     def solve(self):
         """Врати ја секвенцата од состојби за да се стигне од коренот до овој јазол.
-
         :return: листа од состојби
         :rtype: list
         """
@@ -159,7 +147,6 @@ class Node:
 
     def path(self):
         """Врати ја листата од јазли што го формираат патот од коренот до овој јазол.
-
         :return: листа од јазли од патот
         :rtype: list(Node)
         """
@@ -189,18 +176,17 @@ class Node:
 
 class Queue:
     """Queue е апстрактна класа / интерфејс. Постојат 3 типа:
-        Stack(): Last In First Out Queue (стек).
-        FIFOQueue(): First In First Out Queue (редица).
-        PriorityQueue(order, f): Queue во сортиран редослед (подразбирливо,од најмалиот кон
+        Stack(): Last In First Out Queue (стек).
+        FIFOQueue(): First In First Out Queue (редица).
+        PriorityQueue(order, f): Queue во сортиран редослед (подразбирливо,од најмалиот кон
                                  најголемиот јазол).
-    """
+    """
 
     def __init__(self):
         raise NotImplementedError
 
     def append(self, item):
         """Додади го елементот item во редицата
-
         :param item: даден елемент
         :return: None
         """
@@ -208,7 +194,6 @@ class Queue:
 
     def extend(self, items):
         """Додади ги елементите items во редицата
-
         :param items: дадени елементи
         :return: None
         """
@@ -216,14 +201,12 @@ class Queue:
 
     def pop(self):
         """Врати го првиот елемент од редицата
-
         :return: прв елемент
         """
         raise NotImplementedError
 
     def __len__(self):
         """Врати го бројот на елементи во редицата
-
         :return: број на елементи во редицата
         :rtype: int
         """
@@ -231,7 +214,6 @@ class Queue:
 
     def __contains__(self, item):
         """Проверка дали редицата го содржи елементот item
-
         :param item: даден елемент
         :return: дали queue го содржи item
         :rtype: bool
@@ -342,7 +324,6 @@ def memoize(fn, slot=None):
     аргументи. Ако е специфициран slot, зачувај го резултатот во
     тој slot на првиот аргумент. Ако slot е None, зачувај ги
     резултатите во речник.
-
     :param fn: зададена функција
     :type fn: function
     :param slot: име на атрибут во кој се чуваат резултатите од функцијата
@@ -373,7 +354,6 @@ def best_first_graph_search(problem, f):
      функција за евалуација за да се одлучи кој е сосед најмногу ветува и
      потоа да се истражи. Ако до дадена состојба стигнат два пата, употреби
      го најдобриот пат.
-
     :param problem: даден проблем
     :type problem: Problem
     :param f: дадена функција за евалуација (проценка)
@@ -406,7 +386,6 @@ def best_first_graph_search(problem, f):
 
 def greedy_best_first_graph_search(problem, h=None):
     """ Greedy best-first пребарување се остварува ако се специфицира дека f(n) = h(n).
-
     :param problem: даден проблем
     :type problem: Problem
     :param h: дадена функција за хевристика
@@ -419,7 +398,6 @@ def greedy_best_first_graph_search(problem, h=None):
 
 def astar_search(problem, h=None):
     """ A* пребарување е best-first graph пребарување каде f(n) = g(n) + h(n).
-
     :param problem: даден проблем
     :type problem: Problem
     :param h: дадена функција за хевристика
@@ -434,7 +412,6 @@ def recursive_best_first_search(problem, h=None):
     """Recursive best first search - ја ограничува рекурзијата
     преку следење на f-вредноста на најдобриот алтернативен пат
     од било кој јазел предок (еден чекор гледање нанапред).
-
     :param problem: даден проблем
     :type problem: Problem
     :param h: дадена функција за хевристика
@@ -470,11 +447,48 @@ def recursive_best_first_search(problem, h=None):
     result, bestf = RBFS(problem, node, infinity)
     return result
 
-class GhostOnSkates(Problem):
-    def __init__(self, initial, walls, n, goal=None):
+
+class Snake(Problem):
+    def __init__(self, initial, goal=None):
         super().__init__(initial, goal)
-        self.walls = set(walls)
-        self.n = n
+
+    def successor(self, state):
+        successors = {}
+        snake_body, direction, apples = state
+        head_x, head_y = snake_body[0]
+
+        moves = [
+            ('Move forward', direction),
+            ('Turn left', (direction - 1) % 4),
+            ('Turn right', (direction + 1) % 4)
+        ]
+
+        for action_name, new_dir in moves:
+            nx, ny = head_x, head_y
+            if new_dir == 0:
+                ny += 1
+            elif new_dir == 1:
+                nx += 1
+            elif new_dir == 2:
+                ny -= 1
+            elif new_dir == 3:
+                nx -= 1
+
+            if 0 <= nx < 10 and 0 <= ny < 10:
+                new_head = (nx, ny)
+                is_apple = new_head in apples
+                body_to_check = snake_body if is_apple else snake_body[:-1]
+
+                if new_head not in body_to_check:
+                    new_apples = tuple(a for a in apples if a != new_head)
+                    if is_apple:
+                        new_body = (new_head,) + snake_body
+                    else:
+                        new_body = (new_head,) + snake_body[:-1]
+
+                    successors[action_name] = (new_body, new_dir, new_apples)
+
+        return successors
 
     def actions(self, state):
         return self.successor(state).keys()
@@ -483,46 +497,28 @@ class GhostOnSkates(Problem):
         return self.successor(state)[action]
 
     def goal_test(self, state):
-        return state == self.goal
-
-    @staticmethod
-    def check_valid(state, walls, n):
-        x, y = state
-        return 0 <= x < n and 0 <= y < n and state not in walls
-
-    def successor(self, state):
-        successors = dict()
-        x, y = state
-
-        for steps in [1, 2, 3]:
-            new_state = (x, y + steps)
-            if self.check_valid(new_state, self.walls, self.n):
-                successors[f"Up {steps}"] = new_state
-
-        for steps in [1, 2, 3]:
-            new_state = (x + steps, y)
-            if self.check_valid(new_state, self.walls, self.n):
-                successors[f"Right {steps}"] = new_state
-
-        return successors
+        return len(state[2]) == 0
 
     def h(self, node):
-        x, y = node.state
-        gx, gy = self.goal
-        return (abs(gx - x) + abs(gy - y)) / 3
+        snake_body, _, apples = node.state
+        if not apples:
+            return 0
+        head = snake_body[0]
+        distances = [abs(head[0] - a[0]) + abs(head[1] - a[1]) for a in apples]
+        return min(distances) + len(apples)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = int(input())
-    ghost_pos = (0, 0)
-    goal_pos = (n - 1, n - 1)
-    num_holes = int(input())
-    holes = list()
-    for _ in range(num_holes):
-        holes.append(tuple(map(int, input().split(','))))
-    problem = GhostOnSkates(ghost_pos, holes, n, goal_pos)
-    solution = astar_search(problem)
+    zeleni_jabolki = [tuple(map(int, input().split(','))) for _ in range(n)]
 
+    initial_snake = ((0, 7), (0, 8), (0, 9))
+    initial_dir = 2
+    initial_state = (initial_snake, initial_dir, tuple(zeleni_jabolki))
+
+    snake_problem = Snake(initial_state)
+    solution = astar_search(snake_problem)
+    # nema site zeleni da svetnat no sepak matematicki e tochno!
     if solution:
         print(solution.solution())
     else:
