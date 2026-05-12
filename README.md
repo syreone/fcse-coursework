@@ -1,6 +1,6 @@
-# Втора лабораториска вежба по Софтверско инженерство
+# SI_2026_lab2_236032
 
-## YOUR NAME YOUR LAST NAME, бр. на индекс 236032
+## Luka Apostolov 236032
 
 ### Control Flow Graph
 
