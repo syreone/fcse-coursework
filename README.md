@@ -33,7 +33,7 @@ Test 1: title="" - throws IllegalArgumentException - гранка: if(isEmpty||i
 
 Test 2: title="The Hobbit", author="" - throws IllegalArgumentException - гранка: if(isEmpty||isEmpty) = true (author празен)
 
-Test 3: title="Unknown", author="Author" - throws RuntimeException - гранка: for јамката завршува без match
+Test 3: title="Unknown", author="Author" - throws RuntimeException - гранка: for завршува без match
 
 Test 4: title="The Hobbit", author="Tolkien" (достапна) - позајмува успешно - гранка: if(matches) = true, if(!isBorrowed) = true
 
@@ -65,8 +65,8 @@ Test 4: title.isEmpty()=F, author.isEmpty()=F → продолжува со из
 
 ### Објаснување на напишаните unit tests
 
-За тестовите кои го исполнуваат Every Statement критериумот користам `assertThrows` со цел да ги фатам exceptions-ите кои ги фрла функцијата и да проверам дали се токму тие кои ги очекуваме. За успешниот случај користам `assertNotNull` и `assertNull` за да го проверам резултатот.
+За тестовите кои го исполнуваат Every Statement критериумот користам `assertThrows` со цел да ги фатам exceptions-от кои ги фрла функцијата и да проверам дали се тие кои што ги очекуваме. За успешниот случај користам `assertNotNull` и `assertNull` за да го проверам резултатот.
 
-За тестовите според Every Branch критериумот, покрај `assertThrows` за негативните случаи, користам `assertTrue` за да проверам дека книгата е навистина означена како позајмена по успешното позајмување.
+За тестовите според Every Branch критериумот, покрај `assertThrows` за негативните случаеви, користам `assertTrue` за да проверам дека книгата е навистина означена како позајмена.
 
-За тестовите според Multiple Condition критериумот ги покривам сите комбинации на под-услови за двата услови кои се тестираат.
+За тестовите според Multiple Condition критериумот ги покривам сите комбинации на под-услови за двата кои се тестираат.
