@@ -40,4 +40,4 @@ git merge feature-borrow-book
 
 Merge type : Recursive 
 Двете гранки имаа различни commits откако се разделиле, па Git мораше да
-creира нов merge commit за да ги спои промените.
+крeира нов merge commit за да ги спои промените.
