@@ -1,0 +1,81 @@
+package FINKIAPSbook.lists.SLL.exercises;
+
+import java.util.Scanner;
+
+public class BrishiJazli {
+    private static class SLLNode<E> {
+        E element;
+        SLLNode<E> succ;
+
+        public SLLNode(E elem, SLLNode<E> succ) {
+            this.element = elem;
+            this.succ = succ;
+        }
+    }
+
+    private static class SLL<E> {
+        private SLLNode<E> first;
+
+        public SLL() {
+            first = null;
+        }
+
+        public SLLNode<E> getFirst() {
+            return first;
+        }
+
+        public void insertLast(E element) {
+            if (first == null) {
+                first = new SLLNode<>(element, null);
+            } else {
+                SLLNode<E> tmp = first;
+                while (tmp.succ != null) {
+                    tmp = tmp.succ;
+                }
+                tmp.succ = new SLLNode<>(element, null);
+            }
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            SLLNode<E> tmp = first;
+            while (tmp != null) {
+                sb.append(tmp.element);
+                if (tmp.succ != null) sb.append("->");
+                tmp = tmp.succ;
+            }
+            return sb.toString();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        SLL<Integer> lista = new SLL<>();
+
+        for (int i = 0; i < n; i++) {
+            lista.insertLast(sc.nextInt());
+        }
+
+        SLLNode<Integer> curr = lista.getFirst();
+        int keep = 1;
+
+        while (curr!=null) {
+            for (int i = 1; i < keep && curr != null; i++) {
+                curr = curr.succ;
+            }
+            if (curr == null) {
+                break;
+            }
+            if (curr.succ != null) {
+                curr.succ = curr.succ.succ;
+                curr = curr.succ;
+            } else {
+                break;
+            }
+            keep++;
+        }
+        System.out.println(lista.toString());
+    }
+}
