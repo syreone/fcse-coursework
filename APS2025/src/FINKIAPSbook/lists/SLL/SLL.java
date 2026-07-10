@@ -44,7 +44,7 @@ public class SLL<E> {
         first = ins;
     }
 
-    public void insertAfter(E o, SLLNode<E> node) {
+    public void insertAfter(Integer o, int node) {
         if (node != null) {
             SLLNode<E> ins = new SLLNode<E>(o, node.succ);
             node.succ = ins;
