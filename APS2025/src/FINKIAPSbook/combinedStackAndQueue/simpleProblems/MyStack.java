@@ -1,5 +1,7 @@
 package FINKIAPSbook.combinedStackAndQueue.simpleProblems;
 
+import FINKIAPSbook.combinedStackAndQueue.ArrayQueue;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

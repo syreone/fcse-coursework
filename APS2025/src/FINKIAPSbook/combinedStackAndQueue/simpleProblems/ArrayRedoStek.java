@@ -1,7 +1,8 @@
 package FINKIAPSbook.combinedStackAndQueue.simpleProblems;
 
-import java.util.Collection;
-import java.util.NoSuchElementException;
+import FINKIAPSbook.combinedStackAndQueue.ArrayQueue;
+import FINKIAPSbook.combinedStackAndQueue.ArrayStack;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
