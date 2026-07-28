@@ -78,4 +78,8 @@ public class CBHT<K extends Comparable<K>, E> {
         }
         return temp;
     }
+
+    public SLLNode<MapEntry<K, E>> getFirst(K name) {
+        return null;
+    }
 }
