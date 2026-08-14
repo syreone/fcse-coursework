@@ -1,4 +1,4 @@
-package exercises.graphs.exercise1;
+package exercises.hashing.exercise1;
 
 
 import java.io.*;
