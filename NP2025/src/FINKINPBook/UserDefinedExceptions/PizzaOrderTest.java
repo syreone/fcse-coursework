@@ -254,7 +254,8 @@ class OrderLockedException extends Exception {
     }
 }
 
-public class PizzaOrderTest {
+public
+class PizzaOrderTest {
     public static void main(String[] args) {
         Scanner jin = new Scanner(System.in);
         int k = jin.nextInt();
