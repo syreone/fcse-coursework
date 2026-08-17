@@ -195,18 +195,27 @@ class OrderingSystem {
     }
 
     public void basketStatsPerUsers() {
-        Map<String, int[]> stats = new TreeMap<>();
+        Map<String, int[]> stats = new HashMap<>();
         for (Basket b : baskets.values()) {
             int[] counts = stats.computeIfAbsent(b.userId, k -> new int[3]);
             switch (b.status) {
-                case ACTIVE -> counts[0]++;
-                case CANCELED -> counts[1]++;
-                case ORDERED -> counts[2]++;
+                case ACTIVE:
+                    counts[0]++;
+                    break;
+                case CANCELED:
+                    counts[1]++;
+                    break;
+                case ORDERED:
+                    counts[2]++;
+                    break;
             }
         }
         for (Map.Entry<String, int[]> e : stats.entrySet()) {
-            int [] c = e.getValue();
-            System.out.println(e.getKey() + ": active=" + c[0] + ", canceled=" + c[1] + ", ordered=" + c[2]);
+            int[] c = e.getValue();
+            System.out.println("User: " + e.getKey());
+            System.out.println("  ACTIVE: " + c[0]);
+            System.out.println("  ORDERED: " + c[2]);
+            System.out.println("  CANCELED: " + c[1]);
         }
     }
 
