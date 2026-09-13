@@ -42,7 +42,6 @@ class Maze(Problem):
         gx, gy = self.house_pos
         return ((abs(gx - x) + 2) // 3) + abs(gy - y)
 
-
 if __name__ == "__main__":
     n = int(input())
     num_walls = int(input())
